@@ -11,13 +11,18 @@ import Kanna
 import Alamofire
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var html: String?
+    var html: String? = nil
     var shows: [String] = []
+    let textCellIdentifier = "TextCell"
+    
+    @IBOutlet var metalShowTableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        metalShowTableView.delegate = self
+        metalShowTableView.dataSource = self
         gatherMetalShows()
     }
 
@@ -37,6 +42,7 @@ class ViewController: UIViewController {
     
     func parseHTML(html: String) -> Void {
         if let doc = Kanna.HTML(html: html, encoding: NSUTF8StringEncoding) {
+            shows = []
             
             // Search for nodes by CSS
             for show in doc.css("td[id^='Text']") {
@@ -56,10 +62,25 @@ class ViewController: UIViewController {
                 }
             }
             
-            print(shows.count)
-            
+            self.metalShowTableView.reloadData()
         }
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return shows.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath)
+        
+        let row = indexPath.row
+        cell.textLabel?.text = shows[row]
+        
+        return cell
     }
 
 }
-
