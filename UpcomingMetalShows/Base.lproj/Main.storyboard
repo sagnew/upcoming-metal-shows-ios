@@ -22,17 +22,24 @@
                                 <rect key="frame" x="20" y="20" width="560" height="580"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TextCell" textLabel="AFG-Cb-EhD" style="IBUITableViewCellStyleDefault" id="dYs-n1-fAe">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ShowCell" textLabel="BMW-Ut-wds" detailTextLabel="Wnb-7I-w5s" style="IBUITableViewCellStyleSubtitle" id="dYs-n1-fAe">
                                         <rect key="frame" x="0.0" y="28" width="560" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dYs-n1-fAe" id="qa3-Ri-R6z">
                                             <rect key="frame" x="0.0" y="0.0" width="560" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AFG-Cb-EhD">
-                                                    <rect key="frame" x="15" y="0.0" width="530" height="43"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BMW-Ut-wds">
+                                                    <rect key="frame" x="15" y="5" width="32" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wnb-7I-w5s">
+                                                    <rect key="frame" x="15" y="25" width="31" height="14"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -44,9 +51,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IJx-9j-XMp" secondAttribute="bottom" id="EXf-5q-Xt8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="IJx-9j-XMp" secondAttribute="trailing" id="PN2-LX-b4g"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IJx-9j-XMp" secondAttribute="bottom" id="WoY-Bq-lls"/>
+                            <constraint firstItem="IJx-9j-XMp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="d1b-O8-37g"/>
+                            <constraint firstItem="IJx-9j-XMp" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="ec3-2a-R9L"/>
                             <constraint firstItem="IJx-9j-XMp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ktA-G4-Zac"/>
+                            <constraint firstItem="IJx-9j-XMp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="qVg-RZ-ghA"/>
                             <constraint firstItem="IJx-9j-XMp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="tMI-tn-sWb"/>
                         </constraints>
                     </view>
