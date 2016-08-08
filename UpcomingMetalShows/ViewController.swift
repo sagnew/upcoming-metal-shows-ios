@@ -14,8 +14,8 @@ import Alamofire
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var html: String? = nil
-    var shows: [String] = []
-    let textCellIdentifier = "TextCell"
+    var shows: [Show] = []
+    let textCellIdentifier = "ShowCell"
     
     @IBOutlet var metalShowTableView: UITableView!
 
@@ -56,7 +56,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     let regex = try! NSRegularExpression(pattern: "^(mon|tue|wed|thu|fri|sat|sun)", options: [.CaseInsensitive])
                     
                     if regex.firstMatchInString(showString, options: [], range: NSMakeRange(0, showString.characters.count)) != nil {
-                        shows.append(showString)
+                        let showSplit = showString.componentsSeparatedByString(":")
+                        let date = showSplit[0]
+                        
+                        let description = showSplit[1].stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+                        
+                        shows.append(Show(date: date, description: description))
+                            
                         print(showString + "\n")
                     }
                 }
@@ -78,7 +84,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath)
         
         let row = indexPath.row
-        cell.textLabel?.text = shows[row]
+        let show = shows[row]
+        
+        cell.detailTextLabel?.text = show.date
+        cell.textLabel?.text = show.description
         
         return cell
     }
