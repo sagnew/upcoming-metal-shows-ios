@@ -97,7 +97,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let row = indexPath.row
         let show = shows[row]
         
-        cell.detailTextLabel?.text = show.date
+        cell.detailTextLabel?.text = show.date + "\n" + show.venue
         cell.textLabel?.text = show.description
         
         return cell
