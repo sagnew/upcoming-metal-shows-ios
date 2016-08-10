@@ -59,11 +59,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                         let showSplit = showString.componentsSeparatedByString(":")
                         let date = showSplit[0]
                         
-                        let description = showSplit[1].stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+                        let venueSplit = showSplit.last!.componentsSeparatedByString(" at ")
+                        var venue = ""
                         
-                        shows.append(Show(date: date, description: description))
-                            
+                        let trimCharacterSet = NSMutableCharacterSet()
+                        trimCharacterSet.formUnionWithCharacterSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+                        trimCharacterSet.addCharactersInString("-")
+                        
+                        if venueSplit.count > 1 {
+                            venue = venueSplit.last!.stringByTrimmingCharactersInSet(trimCharacterSet)
+                        }
+                        
+                        let description = venueSplit[0].stringByTrimmingCharactersInSet(trimCharacterSet)
+                        
+                        shows.append(Show(date: date, description: description, venue: venue))
                         print(showString + "\n")
+                        
                     }
                 }
             }

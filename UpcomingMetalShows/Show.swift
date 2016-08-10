@@ -11,4 +11,5 @@ import Foundation
 struct Show {
     var date: String = ""
     var description: String = ""
+    var venue: String = ""
 }
