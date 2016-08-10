@@ -9,12 +9,14 @@
 import UIKit
 
 class ShowWebViewController: UIViewController {
-    var URL: String?
-
+    var url: String?
+    
+    @IBOutlet var webView: UIWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        let url = NSURL(string: self.url!)
+        webView.loadRequest(NSURLRequest(URL: url!))
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,7 +25,7 @@ class ShowWebViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        print(self.URL)
+        print(self.url)
     }
     
 

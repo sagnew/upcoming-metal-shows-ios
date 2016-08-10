@@ -98,7 +98,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             let destination = segue.destinationViewController as? ShowWebViewController,
             showIndex = metalShowTableView.indexPathForSelectedRow?.row {
             
-            destination.URL = shows[showIndex].link
+            destination.url = shows[showIndex].link
         }
     }
     
