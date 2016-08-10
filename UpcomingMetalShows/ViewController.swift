@@ -47,6 +47,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             // Search for nodes by CSS
             for show in doc.css("td[id^='Text']") {
                 
+                // Get the link associated with this show.
+                let link = show.css("a").first?["href"]
+                
                 // Strip the string of surrounding whitespace.
                 let showString = show.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
                 
@@ -72,8 +75,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                         
                         let description = venueSplit[0].stringByTrimmingCharactersInSet(trimCharacterSet)
                         
-                        shows.append(Show(date: date, description: description, venue: venue))
                         print(showString + "\n")
+                        if link != nil {
+                            shows.append(Show(date: date, description: description, venue: venue, link: link!))
+                            print(link! + "\n")
+                        } else {
+                            shows.append(Show(date: date, description: description, venue: venue, link: ""))
+                        }
                         
                     }
                 }
