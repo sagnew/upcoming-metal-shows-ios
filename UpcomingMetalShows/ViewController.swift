@@ -77,7 +77,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                         
                         let description = venueSplit[0].stringByTrimmingCharactersInSet(trimCharacterSet)
                         
-                        print(showString + "\n")
                         if link != nil {
                             shows.append(Show(date: date, description: description, venue: venue, link: link!))
                         } else {
@@ -93,7 +92,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        print("Segue time")
         if  segue.identifier == showConcertInfoSegueIdentifier,
             let destination = segue.destinationViewController as? ShowWebViewController,
             showIndex = metalShowTableView.indexPathForSelectedRow?.row {
@@ -107,7 +105,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        // pass any object as parameter, i.e. the tapped row
+        // Pass any object as parameter, i.e. the tapped row.
         performSegueWithIdentifier(showConcertInfoSegueIdentifier, sender: indexPath.row)
     }
     
