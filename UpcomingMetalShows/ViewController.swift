@@ -25,7 +25,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         metalShowTableView.delegate = self
         metalShowTableView.dataSource = self
-        gatherMetalShows()
+        self.scrapeNYCMetalScene()
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,7 +33,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Dispose of any resources that can be recreated.
     }
     
-    func gatherMetalShows() -> Void {
+    // Grabs the HTML from nycmetalscene.com for parsing.
+    func scrapeNYCMetalScene() -> Void {
         Alamofire.request(.GET, "http://nycmetalscene.com").responseString { response in
             print("Success: \(response.result.isSuccess)")
             self.html = response.result.value
