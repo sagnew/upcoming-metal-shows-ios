@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  NYCMetalScene
+//  UpcomingMetalShows
 //
-//  Created by Sam Agnew on 8/18/16.
+//  Created by Sam Agnew on 7/25/16.
 //  Copyright © 2016 Sam Agnew. All rights reserved.
 //
 
