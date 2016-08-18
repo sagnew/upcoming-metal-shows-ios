@@ -3,7 +3,7 @@
 # Uncomment this line if you're using Swift
 use_frameworks!
 
-target 'UpcomingMetalShows' do
+target 'NYCMetalScene' do
     pod 'Alamofire', '~> 3.4'
     pod 'Kanna', '~> 1.1.0'
 end
