@@ -4,7 +4,7 @@
 use_frameworks!
 
 target 'UpcomingMetalShows' do
-    pod 'Alamofire', '~> 3.4'
-    pod 'Kanna', '~> 1.1.0'
+    pod 'Alamofire', '~> 4.0'
+    pod 'Kanna', '~> 2.0.0'
 end
 
